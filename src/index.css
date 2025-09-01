@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CrediMed Design System - All colors, gradients, fonts, etc defined here
+All colors MUST be HSL for consistency and theming
+*/
+
+@layer base {
+  :root {
+    /* CrediMed Brand Colors */
+    --background: 0 0% 100%;
+    --foreground: 215 25% 27%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 27%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 27%;
+
+    /* Primary: Medical Trust Blue */
+    --primary: 205 100% 34%;
+    --primary-light: 205 100% 42%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Healthcare Teal */
+    --secondary: 188 95% 37%;
+    --secondary-light: 188 95% 45%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Accent: South African Green */
+    --accent: 158 64% 52%;
+    --accent-light: 158 64% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Trust indicators */
+    --success: 158 64% 52%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 43 96% 56%;
+    --warning-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Neutral palette */
+    --muted: 215 20% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --border: 215 20% 92%;
+    --input: 215 20% 96%;
+    --ring: 205 100% 34%;
+
+    /* CrediMed specific tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(205 100% 34%), hsl(188 95% 37%));
+    --trust-gradient: linear-gradient(90deg, hsl(158 64% 52%), hsl(188 95% 37%));
+    --card-shadow: 0 4px 20px -4px hsl(215 25% 27% / 0.1);
+    --hero-shadow: 0 10px 40px -12px hsl(205 100% 34% / 0.3);
+
+    /* Typography scale */
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    --font-size-5xl: 3rem;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode for CrediMed */
+    --background: 215 28% 6%;
+    --foreground: 0 0% 98%;
+
+    --card: 215 28% 8%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 215 28% 8%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 205 100% 50%;
+    --primary-light: 205 100% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 188 95% 45%;
+    --secondary-light: 188 95% 53%;
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 158 64% 60%;
+    --accent-light: 158 64% 68%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 158 64% 60%;
+    --warning: 43 96% 64%;
+    --destructive: 0 84% 65%;
+
+    --muted: 215 28% 12%;
+    --muted-foreground: 215 16% 65%;
+
+    --border: 215 28% 18%;
+    --input: 215 28% 12%;
+    --ring: 205 100% 50%;
+
+    /* Updated gradients for dark mode */
+    --hero-gradient: linear-gradient(135deg, hsl(205 100% 50%), hsl(188 95% 45%));
+    --trust-gradient: linear-gradient(90deg, hsl(158 64% 60%), hsl(188 95% 45%));
+    --card-shadow: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
+    --hero-shadow: 0 10px 40px -12px hsl(205 100% 50% / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* CrediMed specific utility classes */
+  .hero-gradient {
+    background: var(--hero-gradient);
+  }
+
+  .trust-gradient {
+    background: var(--trust-gradient);
+  }
+
+  .card-shadow {
+    box-shadow: var(--card-shadow);
+  }
+
+  .hero-shadow {
+    box-shadow: var(--hero-shadow);
+  }
+
+  /* Smooth transitions for better UX */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Focus styles for accessibility */
+  .focus-visible:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  /* Interactive Elements */
+  .hover-scale {
+    transition: transform 0.2s ease-out;
+  }
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+
+  /* Scroll animations */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .animate-on-scroll.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Mobile-first responsive animations */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-in,
+    .animate-float,
+    .hover-scale,
+    .animate-on-scroll {
+      animation: none;
+      transition: none;
+      transform: none;
+      opacity: 1;
+    }
+  }
+
+  /* Performance optimizations */
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .will-change-opacity {
+    will-change: opacity;
+  }
+}
